@@ -28,4 +28,18 @@ public class LoggingAspect {
 
         return returnedByMethod;
     }
+
+    @Around("@annotation(com.learn.annotation.ToLog)")
+    public Object deleteLog(ProceedingJoinPoint joinPoint) throws Throwable {
+        String methodName = joinPoint.getSignature().getName();
+        Object [] arguments = joinPoint.getArgs();
+
+        logger.info("Method " + methodName +
+                " with parameters " + Arrays.asList(arguments) +
+                " will execute");
+        Object returnedByMethod = joinPoint.proceed();
+        logger.info("Method executed and returned " + returnedByMethod);
+
+        return returnedByMethod;
+    }
 }

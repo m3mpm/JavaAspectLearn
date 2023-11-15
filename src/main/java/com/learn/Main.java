@@ -18,7 +18,9 @@ public class Main {
         comment.setAuthor("m3mpm");
 
         String value = service.publishComment(comment);
+        logger.info(value);
 
+        value = service.deleteComment(comment);
         logger.info(value);
     }
 }
