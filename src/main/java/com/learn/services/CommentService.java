@@ -15,4 +15,13 @@ public class CommentService {
         logger.info("Publishing comment:" + comment.getText());
         return "SUCCESS";
     }
+
+    @ToLog
+    public void deleteComment(Comment comment){
+        logger.info("Deleting comment:" + comment.getText());
+    }
+
+    public void editComment(Comment comment){
+        logger.info("Editing comment:" + comment.getText());
+    }
 }
