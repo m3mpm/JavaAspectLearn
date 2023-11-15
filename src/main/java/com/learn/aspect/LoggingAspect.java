@@ -14,7 +14,7 @@ public class LoggingAspect {
 
     private Logger logger = Logger.getLogger(LoggingAspect.class.getName());
     
-    @Around("execution(* com.learn.services.*.*(..))")
+    @Around("execution(* com.learn.services.CommentService.publishComment(..))")
     public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
 
         String methodName = joinPoint.getSignature().getName();
